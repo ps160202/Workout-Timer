@@ -1,18 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/homePage">
 
-    <TextView
+    <RelativeLayout
+        android:id="@+id/totalTimeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/totalTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Time Left"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/totalTimeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/totalTimeLabel"
+            android:textSize="40dp"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/currentTimeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/totalTimeLayout"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/currentTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="<Type>"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/currentTimeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/currentTimeLabel"
+            android:layout_centerHorizontal="true"
+            android:text="00:00"
+            android:textSize="140dp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/nextTimeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/currentTimeLayout">
+
+        <TextView
+            android:id="@+id/nextTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="<Type>"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/nextTimeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/nextTimeLabel"
+            android:textSize="100dp"/>
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="START"
+        android:layout_below="@+id/nextTimeLayout"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/roundsLeftDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="75dp"
+        android:layout_below="@+id/nextTimeLayout"
+        android:layout_toLeftOf="@+id/startButton"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/cyclesLeftDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="75dp"
+        android:layout_below="@+id/nextTimeLayout"
+        android:layout_toRightOf="@+id/startButton"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/cyclesLeftLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ROUNDS LEFT"
+        android:layout_below="@+id/cyclesLeftDisplay"
+        android:layout_marginLeft="60dp"/>
+
+    <TextView
+        android:id="@+id/roundsLeftLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ROUNDS LEFT"
+        android:layout_below="@+id/roundsLeftDisplay"
+        android:layout_marginLeft="250dp"/>
+
+</RelativeLayout>
