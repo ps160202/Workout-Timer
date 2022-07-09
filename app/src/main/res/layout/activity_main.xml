@@ -5,12 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/homePage">
+    android:id="@+id/homePage"
+    android:background="#00BCD4">
+
 
     <RelativeLayout
         android:id="@+id/totalTimeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:background="#9C27B0">
 
         <TextView
             android:id="@+id/totalTimeLabel"
@@ -28,26 +31,25 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/totalTimeLabel"
-            android:textSize="40dp"
-            />
-
+            android:textSize="40dp"/>
 
     </RelativeLayout>
+
 
     <RelativeLayout
         android:id="@+id/currentTimeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/totalTimeLayout"
-        android:layout_marginTop="50dp">
+        android:background="#673AB7">
 
         <TextView
             android:id="@+id/currentTimeLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:text="<Type>"
+            android:layout_marginTop="5dp"
+            android:text="Type"
             android:textSize="20dp" />
 
         <TextView
@@ -59,14 +61,15 @@
             android:text="00:00"
             android:textSize="140dp" />
 
-
     </RelativeLayout>
+
 
     <RelativeLayout
         android:id="@+id/nextTimeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/currentTimeLayout">
+        android:layout_below="@+id/currentTimeLayout"
+        android:background="#2196F3">
 
         <TextView
             android:id="@+id/nextTimeLabel"
@@ -74,7 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="<Type>"
+            android:text="Type"
             android:textSize="15dp"/>
 
         <TextView
@@ -84,56 +87,64 @@
             android:text="00:00"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/nextTimeLabel"
-            android:textSize="100dp"/>
-
+            android:textSize="90dp"/>
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/buttonAndCountLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="START"
-        android:layout_below="@+id/nextTimeLayout"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"/>
+        android:background="#00BCD4"
+        android:layout_below="@id/nextTimeLayout">
 
-    <TextView
-        android:id="@+id/roundsLeftDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="75dp"
-        android:layout_below="@+id/nextTimeLayout"
-        android:layout_toLeftOf="@+id/startButton"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="25dp"/>
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="START"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:id="@+id/cyclesLeftDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="75dp"
-        android:layout_below="@+id/nextTimeLayout"
-        android:layout_toRightOf="@+id/startButton"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="25dp"/>
+        <TextView
+            android:id="@+id/roundsLeftDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="75dp"
+            android:layout_toLeftOf="@+id/startButton"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"/>
 
-    <TextView
-        android:id="@+id/cyclesLeftLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ROUNDS LEFT"
-        android:layout_below="@+id/cyclesLeftDisplay"
-        android:layout_marginLeft="60dp"/>
+        <TextView
+            android:id="@+id/cyclesLeftDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="75dp"
+            android:layout_toRightOf="@+id/startButton"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"/>
 
-    <TextView
-        android:id="@+id/roundsLeftLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ROUNDS LEFT"
-        android:layout_below="@+id/roundsLeftDisplay"
-        android:layout_marginLeft="250dp"/>
+        <TextView
+            android:id="@+id/cyclesLeftLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ROUNDS LEFT"
+            android:layout_below="@+id/cyclesLeftDisplay"
+            android:layout_marginLeft="60dp"/>
+
+        <TextView
+            android:id="@+id/roundsLeftLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ROUNDS LEFT"
+            android:layout_below="@+id/roundsLeftDisplay"
+            android:layout_marginLeft="250dp"/>
+
+    </RelativeLayout>
+
+
+
 
 </RelativeLayout>
