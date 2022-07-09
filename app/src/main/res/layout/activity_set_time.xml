@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetTime">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANCEL"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:textColor="#C9525353"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:layout_alignParentRight="true"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+    <RelativeLayout
+        android:id="@+id/intervalTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/black"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/intervalTextLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INTERVALS"
+            android:textColor="#4E4C4C"
+            android:layout_centerInParent="true"
+            android:textSize="25dp"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/prepareLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/intervalTextLayout"
+        android:background="@drawable/background_border">
+
+        <TextView
+            android:id="@+id/prepareTextLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PREPARE: "
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time before you start"
+            android:textSize="12dp"
+            android:layout_below="@+id/prepareTextLabel"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView
+            android:id="@+id/prepareTimeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:layout_toLeftOf="@+id/arrowPrepare"
+            android:layout_centerVertical="true"
+            android:textSize="30dp"
+            android:layout_marginRight="5dp"/>
+
+        <ImageView
+            android:id="@+id/arrowPrepare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/workLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prepareLayout"
+        android:background="@drawable/background_border">
+
+        <TextView
+            android:id="@+id/workTextLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WORK: "
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do exercise for this long"
+            android:textSize="12dp"
+            android:layout_below="@+id/workTextLabel"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView
+            android:id="@+id/workTimeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:layout_toLeftOf="@+id/arrowWork"
+            android:layout_centerVertical="true"
+            android:textSize="30dp"
+            android:layout_marginRight="5dp"/>
+
+        <ImageView
+            android:id="@+id/arrowWork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/restLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/workLayout"
+        android:background="@drawable/background_border">
+
+        <TextView
+            android:id="@+id/restTextLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REST: "
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rest for this long"
+            android:textSize="12dp"
+            android:layout_below="@+id/restTextLabel"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView
+            android:id="@+id/restTimeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:layout_toLeftOf="@+id/arrowRest"
+            android:layout_centerVertical="true"
+            android:textSize="30dp"
+            android:layout_marginRight="5dp"/>
+
+        <ImageView
+            android:id="@+id/arrowRest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/roundsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/restLayout"
+        android:background="@drawable/background_border">
+
+        <TextView
+            android:id="@+id/roundsTextLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ROUNDS: "
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="One round = work + rest"
+            android:textSize="12dp"
+            android:layout_below="@+id/roundsTextLabel"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView
+            android:id="@+id/roundsTimeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_toLeftOf="@+id/arrowRounds"
+            android:layout_centerVertical="true"
+            android:textSize="30dp"
+            android:layout_marginRight="5dp"/>
+
+        <ImageView
+            android:id="@+id/arrowRounds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/cyclesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/roundsLayout"
+        android:background="@drawable/background_border">
+
+        <TextView
+            android:id="@+id/cyclesTextLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CYCLES: "
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="One cycle is = no. of rounds"
+            android:textSize="12dp"
+            android:layout_below="@+id/cyclesTextLabel"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView
+            android:id="@+id/cyclesTimeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_toLeftOf="@+id/arrowCycles"
+            android:layout_centerVertical="true"
+            android:textSize="30dp"
+            android:layout_marginRight="5dp"/>
+
+        <ImageView
+            android:id="@+id/arrowCycles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rBCLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cyclesLayout"
+        android:background="@drawable/background_border">
+
+        <TextView
+            android:id="@+id/rBCTextLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REST BETWEEN CYCLES: "
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rest between 2 cycles"
+            android:textSize="12dp"
+            android:layout_below="@+id/rBCTextLabel"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView
+            android:id="@+id/rBCTimeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:layout_toLeftOf="@+id/arrowRBC"
+            android:layout_centerVertical="true"
+            android:textSize="30dp"
+            android:layout_marginRight="5dp"/>
+
+        <ImageView
+            android:id="@+id/arrowRBC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
