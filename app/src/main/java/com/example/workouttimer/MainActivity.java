@@ -9,16 +9,25 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton setTime;
+    private ImageButton setTimeButton;
+    private ImageButton settingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTime = findViewById(R.id.setTimeOptButton);
+        setTimeButton = findViewById(R.id.setTimeOptButton);
+        settingsButton = findViewById(R.id.settingsButton);
 
-        setTime.setOnClickListener(new View.OnClickListener() {
+        setTimeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openTimeSettings();
+            }
+        });
+
+        settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openSettings();
@@ -27,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openSettings() {
+        finish();
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
+    }
+
+    private void openTimeSettings() {
         finish();
         Intent intent = new Intent(this, SetTime.class);
         startActivity(intent);
