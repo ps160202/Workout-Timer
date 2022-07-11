@@ -53,33 +53,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PREPARE: "
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/prepareTextLabel"
+            android:layout_marginBottom="3dp"
             android:text="Time before you start"
             android:textSize="12dp"
-            android:layout_below="@+id/prepareTextLabel"
-            android:layout_marginBottom="3dp"/>
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:id="@+id/prepareTimeDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="00:00"
-            android:layout_toLeftOf="@+id/arrowPrepare"
             android:layout_centerVertical="true"
-            android:textSize="30dp"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/arrowPrepare"
+            android:text="00:00"
+            android:textSize="30dp" />
 
         <ImageView
             android:id="@+id/arrowPrepare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow" />
 
     </RelativeLayout>
 
@@ -96,7 +98,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="WORK: "
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -104,7 +107,8 @@
             android:text="Do exercise for this long"
             android:textSize="12dp"
             android:layout_below="@+id/workTextLabel"
-            android:layout_marginBottom="3dp"/>
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:id="@+id/workTimeDisplay"
@@ -139,7 +143,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="REST: "
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -147,7 +152,8 @@
             android:text="Rest for this long"
             android:textSize="12dp"
             android:layout_below="@+id/restTextLabel"
-            android:layout_marginBottom="3dp"/>
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:id="@+id/restTimeDisplay"
@@ -182,7 +188,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ROUNDS: "
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -190,7 +197,8 @@
             android:text="One round = work + rest"
             android:textSize="12dp"
             android:layout_below="@+id/roundsTextLabel"
-            android:layout_marginBottom="3dp"/>
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:id="@+id/roundsTimeDisplay"
@@ -225,7 +233,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CYCLES: "
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -233,7 +242,8 @@
             android:text="One cycle is = no. of rounds"
             android:textSize="12dp"
             android:layout_below="@+id/cyclesTextLabel"
-            android:layout_marginBottom="3dp"/>
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:id="@+id/cyclesTimeDisplay"
@@ -268,7 +278,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="REST BETWEEN CYCLES: "
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -276,7 +287,8 @@
             android:text="Rest between 2 cycles"
             android:textSize="12dp"
             android:layout_below="@+id/rBCTextLabel"
-            android:layout_marginBottom="3dp"/>
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:id="@+id/rBCTimeDisplay"
