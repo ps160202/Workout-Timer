@@ -18,9 +18,9 @@ public class SetTime extends AppCompatActivity {
 
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
-    private TextView typeOfChange;
-    private EditText changeMins, changeSecs;
-    private MaterialButton savePopChanges, cancelPopChanges;
+    private TextView typeOfChange, typeOfChangeRC, typeOfChangeRCLabel;
+    private EditText changeMins, changeSecs, changerc;
+    private MaterialButton savePopChanges, cancelPopChanges, savePopChangesRC, cancelPopChangesRC;
 
     private static long prepareTimeVar = 10000;
     private static long workTimeVar = 45000;
@@ -249,6 +249,58 @@ public class SetTime extends AppCompatActivity {
                 });
             }
         });
+
+        roundsLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeRC();
+                typeOfChangeRC.setText("ROUNDS");
+                typeOfChangeRCLabel.setText("Number of Rounds");
+
+                changerc.setText("" + roundsVar);
+                changerc.setHint("Rounds");
+
+                savePopChangesRC.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+
+                        if(changerc.getText().toString() == "")
+                            roundsVar = 1;
+                        else
+                            roundsVar = Integer.parseInt(changerc.getText().toString());
+
+                        setRCLabel(roundsVar, roundsDisplay);
+                    }
+                });
+            }
+        });
+
+        cyclesLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeRC();
+                typeOfChangeRC.setText("CYCLES");
+                typeOfChangeRCLabel.setText("Number of Cycles");
+
+                changerc.setText("" + cyclesVar);
+                changerc.setHint("Cycles");
+
+                savePopChangesRC.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+
+                        if(changerc.getText().toString() == "")
+                            cyclesVar = 1;
+                        else
+                            cyclesVar = Integer.parseInt(changerc.getText().toString());
+
+                        setRCLabel(cyclesVar, cyclesDisplay);
+                    }
+                });
+            }
+        });
     }
 
     private void setLabels() {
@@ -298,6 +350,31 @@ public class SetTime extends AppCompatActivity {
         dialog.show();
 
         cancelPopChanges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    public void changeRC() {
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View changeRCPopUp = getLayoutInflater().inflate(R.layout.activity_changerc, null);
+
+        typeOfChangeRC = changeRCPopUp.findViewById(R.id.typeTextLabelRC);
+        typeOfChangeRCLabel = changeRCPopUp.findViewById(R.id.rcTextLabel);
+
+        changerc = changeRCPopUp.findViewById(R.id.rcEditText);
+
+        savePopChangesRC = changeRCPopUp.findViewById(R.id.popUpSaveButtonRC);
+        cancelPopChangesRC = changeRCPopUp.findViewById(R.id.popUpCancelButtonRC);
+
+        dialogBuilder.setView(changeRCPopUp);
+        dialog = dialogBuilder.create();
+
+        dialog.show();
+
+        cancelPopChangesRC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
