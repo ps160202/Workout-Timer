@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/typeTextLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="type"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"/>
+
+    <RelativeLayout
+        android:id="@+id/timeEditLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typeTextLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/minsTextLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minutes  :"
+            android:textSize="30dp"/>
+
+
+        <TextView
+            android:id="@+id/secsTextLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seconds :"
+            android:textSize="30dp"
+            android:layout_below="@+id/minsTextLabel"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/minsEditText"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/minsTextLabel"
+            android:layout_marginLeft="20dp"
+            android:hint="Minutes"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/secsEditText"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/secsTextLabel"
+            android:layout_below="@+id/minsEditText"
+            android:layout_marginLeft="20dp"
+            android:hint="Seconds"
+            android:textSize="20dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timeEditLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/popUpCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:text="Cancel"
+            android:layout_marginRight="40dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/popUpSaveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/popUpCancelButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:text="Save"
+            android:layout_marginLeft="40dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

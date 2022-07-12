@@ -159,11 +159,11 @@
             android:id="@+id/restTimeDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="00:00"
-            android:layout_toLeftOf="@+id/arrowRest"
             android:layout_centerVertical="true"
-            android:textSize="30dp"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/arrowRest"
+            android:text="00:00"
+            android:textSize="30dp" />
 
         <ImageView
             android:id="@+id/arrowRest"
@@ -201,7 +201,7 @@
             android:layout_marginLeft="5dp"/>
 
         <TextView
-            android:id="@+id/roundsTimeDisplay"
+            android:id="@+id/roundsDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
@@ -246,14 +246,14 @@
             android:layout_marginLeft="5dp"/>
 
         <TextView
-            android:id="@+id/cyclesTimeDisplay"
+            android:id="@+id/cyclesDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:layout_toLeftOf="@+id/arrowCycles"
             android:layout_centerVertical="true"
-            android:textSize="30dp"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/arrowCycles"
+            android:text="0"
+            android:textSize="30dp" />
 
         <ImageView
             android:id="@+id/arrowCycles"

@@ -1,3 +1,4 @@
+//COPY
 package com.example.workouttimer;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private long prepareTimeVar;
     private long workTimeVar;
     private long restTimeVar;
-    private long roundsVar;
-    private long cyclesVar;
+    private int roundsVar;
+    private int cyclesVar;
     private long rbcVar;
 
     private long totalTimeVar;
@@ -77,26 +80,26 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setRCLabel(long num, TextView txt) {
-        txt.setText("" + num);
-    }
-
-    private void setTimeLabel(long time, TextView txt) {
-
-        int mins = (int) (time / 60);
-        int secs = (int) (time % 60);
-
-        String t = String.format(Locale.getDefault(), "%02d:%02d", mins, secs);
-
-        txt.setText(t);
-    }
-
     private void setLabels() {
         setTimeLabel(totalTimeVar, totalTimeDisplay);
         setTimeLabel(prepareTimeVar, currentTimeDisplay);
         setTimeLabel(workTimeVar, nextTimeDisplay);
         setRCLabel(roundsVar, roundsDisplay);
         setRCLabel(cyclesVar, cyclesDisplay);
+    }
+
+    private void setTimeLabel(long time, TextView txt) {
+        int l = (int) (time / 1000);
+        int mins = (l / 60);
+        int secs = (l % 60);
+
+        String t = String.format(Locale.getDefault(), "%02d:%02d", mins, secs);
+
+        txt.setText(t);
+    }
+
+    private void setRCLabel(int num, TextView txt) {
+        txt.setText("" + num);
     }
 
     private void openSettings() {
