@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     private long totalTimeVar;
 
+    private boolean soundOnVar;
+    private boolean vibrationOnVar;
+
     private ImageButton setTimeButton;
     private ImageButton settingsButton;
     private Button startButton;
@@ -49,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
         cyclesVar = SetTime.getCyclesVar();
         rbcVar = SetTime.getRbcVar();
 
-        totalTimeVar = prepareTimeVar + (((workTimeVar + restTimeVar) * roundsVar) * cyclesVar);
+        soundOnVar = Settings.isSoundOn();
+        vibrationOnVar = Settings.isVibrationOn();
+
+        totalTimeVar = prepareTimeVar + (workTimeVar * roundsVar * cyclesVar) + (restTimeVar * cyclesVar * (roundsVar - 1)) + (rbcVar * (cyclesVar-1));
 
         setTimeButton = findViewById(R.id.setTimeOptButton);
         settingsButton = findViewById(R.id.settingsButton);

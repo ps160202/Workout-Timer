@@ -29,6 +29,13 @@ public class SetTime extends AppCompatActivity {
     private static int cyclesVar = 3;
     private static long rbcVar = 20000;
 
+    private long prepareTimeTmp;
+    private long workTimeTmp;
+    private long restTimeTmp;
+    private int roundsTmp;
+    private int cyclesTmp;
+    private long rbcTmp;
+
     public static long getPrepareTimeVar() {
         return prepareTimeVar;
     }
@@ -94,6 +101,13 @@ public class SetTime extends AppCompatActivity {
         cyclesDisplay = findViewById(R.id.cyclesDisplay);
         rBCDisplay = findViewById(R.id.rBCTimeDisplay);
 
+        prepareTimeTmp = prepareTimeVar;
+        workTimeTmp = workTimeVar;
+        restTimeTmp = restTimeVar;
+        cyclesTmp = cyclesVar;
+        roundsTmp = roundsVar;
+        rbcTmp = rbcVar;
+
         setLabels();
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +120,13 @@ public class SetTime extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                prepareTimeVar = prepareTimeTmp;
+                workTimeVar = workTimeTmp;
+                restTimeVar = restTimeTmp;
+                rbcVar = rbcTmp;
+                roundsVar = roundsTmp;
+                cyclesTmp = cyclesVar;
+
                 back();
             }
         });
@@ -114,7 +135,7 @@ public class SetTime extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 changeTime();
-                int l = (int) (prepareTimeVar / 1000);
+                int l = (int) (prepareTimeTmp / 1000);
                 int mins = (l / 60);
                 int secs = (l % 60);
 
@@ -138,8 +159,8 @@ public class SetTime extends AppCompatActivity {
                         else
                             newSecs = Integer.parseInt(changeSecs.getText().toString());
 
-                        prepareTimeVar = ((newMins*60) + (newSecs)) * 1000;
-                        setTimeLabel(prepareTimeVar, prepareTimeDisplay);
+                        prepareTimeTmp = ((newMins*60) + (newSecs)) * 1000;
+                        setTimeLabel(prepareTimeTmp, prepareTimeDisplay);
                     }
                 });
             }
@@ -149,7 +170,7 @@ public class SetTime extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 changeTime();
-                int l = (int) (workTimeVar / 1000);
+                int l = (int) (workTimeTmp / 1000);
                 int mins = (l / 60);
                 int secs = (l % 60);
 
@@ -162,7 +183,6 @@ public class SetTime extends AppCompatActivity {
                     public void onClick(View view) {
                         dialog.dismiss();
 
-
                         if(changeMins.getText().toString() == "")
                             newMins = 0;
                         else
@@ -173,8 +193,8 @@ public class SetTime extends AppCompatActivity {
                         else
                             newSecs = Integer.parseInt(changeSecs.getText().toString());
 
-                        workTimeVar = ((newMins*60) + (newSecs)) * 1000;
-                        setTimeLabel(workTimeVar, workTimeDisplay);
+                        workTimeTmp = ((newMins*60) + (newSecs)) * 1000;
+                        setTimeLabel(workTimeTmp, workTimeDisplay);
                     }
                 });
             }
@@ -184,7 +204,7 @@ public class SetTime extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 changeTime();
-                int l = (int) (restTimeVar / 1000);
+                int l = (int) (restTimeTmp / 1000);
                 int mins = (l / 60);
                 int secs = (l % 60);
 
@@ -208,8 +228,8 @@ public class SetTime extends AppCompatActivity {
                         else
                             newSecs = Integer.parseInt(changeSecs.getText().toString());
 
-                        restTimeVar = ((newMins*60) + (newSecs)) * 1000;
-                        setTimeLabel(prepareTimeVar, prepareTimeDisplay);
+                        restTimeTmp = ((newMins*60) + (newSecs)) * 1000;
+                        setTimeLabel(restTimeTmp, restTimeDisplay);
                     }
                 });
             }
@@ -219,7 +239,7 @@ public class SetTime extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 changeTime();
-                int l = (int) (rbcVar / 1000);
+                int l = (int) (rbcTmp / 1000);
                 int mins = (l / 60);
                 int secs = (l % 60);
 
@@ -243,8 +263,8 @@ public class SetTime extends AppCompatActivity {
                         else
                             newSecs = Integer.parseInt(changeSecs.getText().toString());
 
-                        rbcVar = ((newMins*60) + (newSecs)) * 1000;
-                        setTimeLabel(rbcVar, rBCDisplay);
+                        rbcTmp = ((newMins*60) + (newSecs)) * 1000;
+                        setTimeLabel(rbcTmp, rBCDisplay);
                     }
                 });
             }
@@ -257,7 +277,7 @@ public class SetTime extends AppCompatActivity {
                 typeOfChangeRC.setText("ROUNDS");
                 typeOfChangeRCLabel.setText("Number of Rounds");
 
-                changerc.setText("" + roundsVar);
+                changerc.setText("" + roundsTmp);
                 changerc.setHint("Rounds");
 
                 savePopChangesRC.setOnClickListener(new View.OnClickListener() {
@@ -266,11 +286,11 @@ public class SetTime extends AppCompatActivity {
                         dialog.dismiss();
 
                         if(changerc.getText().toString() == "")
-                            roundsVar = 1;
+                            roundsTmp = 1;
                         else
-                            roundsVar = Integer.parseInt(changerc.getText().toString());
+                            roundsTmp = Integer.parseInt(changerc.getText().toString());
 
-                        setRCLabel(roundsVar, roundsDisplay);
+                        setRCLabel(roundsTmp, roundsDisplay);
                     }
                 });
             }
@@ -283,7 +303,7 @@ public class SetTime extends AppCompatActivity {
                 typeOfChangeRC.setText("CYCLES");
                 typeOfChangeRCLabel.setText("Number of Cycles");
 
-                changerc.setText("" + cyclesVar);
+                changerc.setText("" + cyclesTmp);
                 changerc.setHint("Cycles");
 
                 savePopChangesRC.setOnClickListener(new View.OnClickListener() {
@@ -292,11 +312,11 @@ public class SetTime extends AppCompatActivity {
                         dialog.dismiss();
 
                         if(changerc.getText().toString() == "")
-                            cyclesVar = 1;
+                            cyclesTmp = 1;
                         else
-                            cyclesVar = Integer.parseInt(changerc.getText().toString());
+                            cyclesTmp = Integer.parseInt(changerc.getText().toString());
 
-                        setRCLabel(cyclesVar, cyclesDisplay);
+                        setRCLabel(cyclesTmp, cyclesDisplay);
                     }
                 });
             }
