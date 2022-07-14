@@ -31,6 +31,10 @@ public class Settings extends AppCompatActivity {
         return vibrationOn;
     }
 
+    public static float getVolume() {
+        return volume;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,11 @@ public class Settings extends AppCompatActivity {
         soundScheme = findViewById(R.id.soundOptionsLayout);
         volumeSlider = findViewById(R.id.volumeSlider);
 
+        soundOnSwitch.setChecked(soundOn);
+        vibrationOnSwitch.setChecked(vibrationOn);
+        volumeSlider.setValue(volume);
+
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +60,9 @@ public class Settings extends AppCompatActivity {
     }
 
     private void back() {
+        volume = volumeSlider.getValue();
+        soundOn = soundOnSwitch.isChecked();
+        vibrationOn = vibrationOnSwitch.isChecked();
         finish();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

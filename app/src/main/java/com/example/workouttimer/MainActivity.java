@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean soundOnVar;
     private boolean vibrationOnVar;
+    private float volume;
 
     private ImageButton setTimeButton;
     private ImageButton settingsButton;
@@ -77,7 +78,9 @@ public class MainActivity extends AppCompatActivity {
 
         soundOnVar = Settings.isSoundOn();
         vibrationOnVar = Settings.isVibrationOn();
+        volume = Settings.getVolume()/100.0f;
         mPlayer = MediaPlayer.create(this, R.raw.boxing_bell);
+        mPlayer.setVolume(volume, volume);
         vibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
 
         timerRunning = false;
