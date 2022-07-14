@@ -8,11 +8,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/cancelButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CANCEL"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:textColor="#C9525353"/>
+        android:textColor="#C9525353" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/saveButton"
