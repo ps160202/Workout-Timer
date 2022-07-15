@@ -125,7 +125,7 @@ public class SetTime extends AppCompatActivity {
                 restTimeVar = restTimeTmp;
                 rbcVar = rbcTmp;
                 roundsVar = roundsTmp;
-                cyclesTmp = cyclesVar;
+                cyclesVar = cyclesTmp;
 
                 back();
             }

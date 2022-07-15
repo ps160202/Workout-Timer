@@ -4,7 +4,9 @@ package com.example.workouttimer;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean soundOnVar;
     private boolean vibrationOnVar;
     private float volume;
+
+    private SharedPreferences setPreferences;
 
     private ImageButton setTimeButton;
     private ImageButton settingsButton;
@@ -76,9 +80,12 @@ public class MainActivity extends AppCompatActivity {
         cyclesVar = SetTime.getCyclesVar();
         rbcVar = SetTime.getRbcVar();
 
-        soundOnVar = Settings.isSoundOn();
-        vibrationOnVar = Settings.isVibrationOn();
-        volume = Settings.getVolume()/100.0f;
+        setPreferences = getApplicationContext().getSharedPreferences("WorkoutTimerSettings", Context.MODE_PRIVATE);
+
+        soundOnVar = setPreferences.getBoolean("SoundOn", true);
+        vibrationOnVar = setPreferences.getBoolean("VibrationOn", true);
+        volume = setPreferences.getFloat("Volume", 0.0f)/100.0f;
+
         mPlayer = MediaPlayer.create(this, R.raw.boxing_bell);
         mPlayer.setVolume(volume, volume);
         vibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
