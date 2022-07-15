@@ -72,15 +72,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        prepareTimeVar = SetTime.getPrepareTimeVar();
-        workTimeVar = SetTime.getWorkTimeVar();
-        restTimeVar = SetTime.getRestTimeVar();
-        roundsVar = SetTime.getRoundsVar();
-        roundVarTmp = roundsVar;
-        cyclesVar = SetTime.getCyclesVar();
-        rbcVar = SetTime.getRbcVar();
-
         setPreferences = getApplicationContext().getSharedPreferences("WorkoutTimerSettings", Context.MODE_PRIVATE);
+
+        prepareTimeVar = setPreferences.getLong("PrepareTime", 10000);
+        workTimeVar = setPreferences.getLong("WorkTime", 45000);
+        restTimeVar = setPreferences.getLong("RestTime", 15000);
+        roundsVar = setPreferences.getInt("NumberOfRounds", 3);
+        roundVarTmp = roundsVar;
+        cyclesVar = setPreferences.getInt("NumberOfCycles", 3);
+        rbcVar = setPreferences.getLong("RBCTime", 20000);
 
         soundOnVar = setPreferences.getBoolean("SoundOn", true);
         vibrationOnVar = setPreferences.getBoolean("VibrationOn", true);
@@ -326,12 +326,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void resetTimes() {
-        prepareTimeVar = SetTime.getPrepareTimeVar();
-        workTimeVar = SetTime.getWorkTimeVar();
-        restTimeVar = SetTime.getRestTimeVar();
-        roundsVar = SetTime.getRoundsVar();
-        cyclesVar = SetTime.getCyclesVar();
-        rbcVar = SetTime.getRbcVar();
+        prepareTimeVar = setPreferences.getLong("PrepareTime", 10000);
+        workTimeVar = setPreferences.getLong("WorkTime", 45000);
+        restTimeVar = setPreferences.getLong("RestTime", 15000);
+        roundsVar = setPreferences.getInt("NumberOfRounds", 3);
+        roundVarTmp = roundsVar;
+        cyclesVar = setPreferences.getInt("NumberOfCycles", 3);
+        rbcVar = setPreferences.getLong("RBCTime", 20000);
 
         totalTimeVar = prepareTimeVar + (workTimeVar * roundsVar * cyclesVar) + (restTimeVar * cyclesVar * (roundsVar - 1)) + (rbcVar * (cyclesVar - 1));
 

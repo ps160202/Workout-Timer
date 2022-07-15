@@ -21,23 +21,7 @@ public class Settings extends AppCompatActivity {
     private RelativeLayout soundScheme;
     private Slider volumeSlider;
 
-    private static boolean soundOn = true;
-    private static boolean vibrationOn = false;
-    private static float volume = 70.0F;
-
     SharedPreferences sp;
-
-    public static boolean isSoundOn() {
-        return soundOn;
-    }
-
-    public static boolean isVibrationOn() {
-        return vibrationOn;
-    }
-
-    public static float getVolume() {
-        return volume;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

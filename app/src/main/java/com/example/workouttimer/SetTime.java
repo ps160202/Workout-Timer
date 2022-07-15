@@ -3,7 +3,9 @@ package com.example.workouttimer;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -22,12 +24,8 @@ public class SetTime extends AppCompatActivity {
     private EditText changeMins, changeSecs, changerc;
     private MaterialButton savePopChanges, cancelPopChanges, savePopChangesRC, cancelPopChangesRC;
 
-    private static long prepareTimeVar = 10000;
-    private static long workTimeVar = 45000;
-    private static long restTimeVar = 15000;
-    private static int roundsVar = 3;
-    private static int cyclesVar = 3;
-    private static long rbcVar = 20000;
+    SharedPreferences sp;
+    SharedPreferences.Editor editor;
 
     private long prepareTimeTmp;
     private long workTimeTmp;
@@ -35,30 +33,6 @@ public class SetTime extends AppCompatActivity {
     private int roundsTmp;
     private int cyclesTmp;
     private long rbcTmp;
-
-    public static long getPrepareTimeVar() {
-        return prepareTimeVar;
-    }
-
-    public static long getWorkTimeVar() {
-        return workTimeVar;
-    }
-
-    public static long getRestTimeVar() {
-        return restTimeVar;
-    }
-
-    public static int getRoundsVar() {
-        return roundsVar;
-    }
-
-    public static int getCyclesVar() {
-        return cyclesVar;
-    }
-
-    public static long getRbcVar() {
-        return rbcVar;
-    }
 
     private MaterialButton saveButton;
     private MaterialButton cancelButton;
@@ -101,12 +75,16 @@ public class SetTime extends AppCompatActivity {
         cyclesDisplay = findViewById(R.id.cyclesDisplay);
         rBCDisplay = findViewById(R.id.rBCTimeDisplay);
 
-        prepareTimeTmp = prepareTimeVar;
-        workTimeTmp = workTimeVar;
-        restTimeTmp = restTimeVar;
-        cyclesTmp = cyclesVar;
-        roundsTmp = roundsVar;
-        rbcTmp = rbcVar;
+        sp = getSharedPreferences("WorkoutTimerSettings", Context.MODE_PRIVATE);
+        SharedPreferences setPreferences = getApplicationContext().getSharedPreferences("WorkoutTimerSettings", Context.MODE_PRIVATE);
+        editor = sp.edit();
+
+        prepareTimeTmp = setPreferences.getLong("PrepareTime", 10000);
+        workTimeTmp = setPreferences.getLong("WorkTime", 45000);
+        restTimeTmp = setPreferences.getLong("RestTime", 15000);
+        roundsTmp = setPreferences.getInt("NumberOfRounds", 3);
+        cyclesTmp = setPreferences.getInt("NumberOfCycles", 3);
+        rbcTmp = setPreferences.getInt("RBCTime", 20000);
 
         setLabels();
 
@@ -120,12 +98,14 @@ public class SetTime extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                prepareTimeVar = prepareTimeTmp;
-                workTimeVar = workTimeTmp;
-                restTimeVar = restTimeTmp;
-                rbcVar = rbcTmp;
-                roundsVar = roundsTmp;
-                cyclesVar = cyclesTmp;
+                prepareTimeTmp = prepareTimeTmp;
+                workTimeTmp = workTimeTmp;
+                restTimeTmp = restTimeTmp;
+                rbcTmp = rbcTmp;
+                roundsTmp = roundsTmp;
+                cyclesTmp = cyclesTmp;
+
+                editor.commit();
 
                 back();
             }
@@ -160,6 +140,7 @@ public class SetTime extends AppCompatActivity {
                             newSecs = Integer.parseInt(changeSecs.getText().toString());
 
                         prepareTimeTmp = ((newMins*60) + (newSecs)) * 1000;
+                        editor.putLong("PrepareTime", prepareTimeTmp);
                         setTimeLabel(prepareTimeTmp, prepareTimeDisplay);
                     }
                 });
@@ -194,6 +175,7 @@ public class SetTime extends AppCompatActivity {
                             newSecs = Integer.parseInt(changeSecs.getText().toString());
 
                         workTimeTmp = ((newMins*60) + (newSecs)) * 1000;
+                        editor.putLong("WorkTime", workTimeTmp);
                         setTimeLabel(workTimeTmp, workTimeDisplay);
                     }
                 });
@@ -229,6 +211,7 @@ public class SetTime extends AppCompatActivity {
                             newSecs = Integer.parseInt(changeSecs.getText().toString());
 
                         restTimeTmp = ((newMins*60) + (newSecs)) * 1000;
+                        editor.putLong("RestTime", restTimeTmp);
                         setTimeLabel(restTimeTmp, restTimeDisplay);
                     }
                 });
@@ -264,6 +247,7 @@ public class SetTime extends AppCompatActivity {
                             newSecs = Integer.parseInt(changeSecs.getText().toString());
 
                         rbcTmp = ((newMins*60) + (newSecs)) * 1000;
+                        editor.putLong("RBCTime", rbcTmp);
                         setTimeLabel(rbcTmp, rBCDisplay);
                     }
                 });
@@ -290,6 +274,7 @@ public class SetTime extends AppCompatActivity {
                         else
                             roundsTmp = Integer.parseInt(changerc.getText().toString());
 
+                        editor.putInt("NumberOfRounds", roundsTmp);
                         setRCLabel(roundsTmp, roundsDisplay);
                     }
                 });
@@ -316,6 +301,7 @@ public class SetTime extends AppCompatActivity {
                         else
                             cyclesTmp = Integer.parseInt(changerc.getText().toString());
 
+                        editor.putInt("NumberOfCycles", cyclesTmp);
                         setRCLabel(cyclesTmp, cyclesDisplay);
                     }
                 });
@@ -324,12 +310,12 @@ public class SetTime extends AppCompatActivity {
     }
 
     private void setLabels() {
-        setTimeLabel(prepareTimeVar, prepareTimeDisplay);
-        setTimeLabel(workTimeVar, workTimeDisplay);
-        setTimeLabel(restTimeVar, restTimeDisplay);
-        setRCLabel(roundsVar, roundsDisplay);
-        setRCLabel(cyclesVar, cyclesDisplay);
-        setTimeLabel(rbcVar, rBCDisplay);
+        setTimeLabel(prepareTimeTmp, prepareTimeDisplay);
+        setTimeLabel(workTimeTmp, workTimeDisplay);
+        setTimeLabel(restTimeTmp, restTimeDisplay);
+        setRCLabel(roundsTmp, roundsDisplay);
+        setRCLabel(cyclesTmp, cyclesDisplay);
+        setTimeLabel(rbcTmp, rBCDisplay);
     }
 
     private void setTimeLabel(long time, TextView txt) {
